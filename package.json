@@ -1,0 +1,22 @@
+{
+  "name": "gymtrackwebsite",
+  "version": "1.0.0",
+  "description": "Website that tracks gym numbers.",
+  "main": "startServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/narayank97/GymTrackWebsite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/narayank97/GymTrackWebsite/issues"
+  },
+  "homepage": "https://github.com/narayank97/GymTrackWebsite#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
