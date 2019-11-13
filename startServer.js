@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+var http = require('http');
+var server = http.Server(app);
+
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/public/home.html');
     console.log(`We hit home page`);
