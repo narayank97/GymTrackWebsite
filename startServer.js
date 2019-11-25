@@ -1,6 +1,10 @@
+require('dotenv').config();
 const express = require('express');
+const {Client} = require('pg');
 const app = express();
+
 const PORT = process.env.PORT || 3000;
+const {DATABASE_URL} = process.env;
 
 var http = require('http');
 var server = http.Server(app);
@@ -33,8 +37,10 @@ app.use('/', express.static(__dirname + '/public'));
 app.use("/scripts", express.static(__dirname + '/public/javascripts'));
 
 app.get('/', function (req, res){
-        res.sendFile(__dirname + '/public/palindrome.html');
-        console.log(`We hit page 1`);
+    console.log(`We hit page 1`);
+    res.setHeader('Content-type','text/html');
+    res.sendFile(__dirname + '/public/palindrome.html');
+    
 })
 
 app.get('/palindrome', palindromeHandler);   // http://....../palindrome?word=...
@@ -43,5 +49,22 @@ app.get('/palindrome', palindromeHandler);   // http://....../palindrome?word=..
 //     res.sendFile(__dirname + '/public/page1.html');
 //     console.log(`We hit page 1`);
 // })
+
+// const client  = new Client({
+//     connectionString: DATABASE_URL,
+// });
+
+// res.statusCode = 200;
+
+// res.setHeader('Content-Type','text/plain');
+// client.connect().then(() => client.query('SELECT * FROM hellotable'))
+//                 .then((result) => {
+//                     res.end(`${result.rows[0].name}\n`);
+//                     client.end();
+//                 })
+//                 .catch(() => {
+//                     res.end('ERROR');
+//                     client.end();
+//                 });
 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`))
