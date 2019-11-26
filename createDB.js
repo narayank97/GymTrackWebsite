@@ -24,8 +24,10 @@ if(process.env.DATABASE_URL != undefined){
         connectionString: process.env.DATABASE_URL,
         ssl: true
     };
+    console.log("Checking db");
     let pool = new Pool(connectionString);
     pool.on('connect', () => console.log('connected to db'));
+    console.log("After db we out here");
 }
 
 
