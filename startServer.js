@@ -9,6 +9,9 @@ const {DATABASE_URL} = process.env;
 var http = require('http');
 var server = http.Server(app);
 
+const db = require('./createDB')
+
+db.createTable();
 //***************************Sending Input through url as query*************************************
 
 function palindromeHandler(req,res,next){
@@ -45,26 +48,9 @@ app.get('/', function (req, res){
 
 app.get('/palindrome', palindromeHandler);   // http://....../palindrome?word=...
 
-// app.get('/page1', function (req, res) {
-//     res.sendFile(__dirname + '/public/page1.html');
-//     console.log(`We hit page 1`);
-// })
+app.get('/getRows',db.getRows);
 
-// const client  = new Client({
-//     connectionString: DATABASE_URL,
-// });
+app.get('/insertRecord', db.insertRecord);
 
-// res.statusCode = 200;
-
-// res.setHeader('Content-Type','text/plain');
-// client.connect().then(() => client.query('SELECT * FROM hellotable'))
-//                 .then((result) => {
-//                     res.end(`${result.rows[0].name}\n`);
-//                     client.end();
-//                 })
-//                 .catch(() => {
-//                     res.end('ERROR');
-//                     client.end();
-//                 });
 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`))
