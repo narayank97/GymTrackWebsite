@@ -21,7 +21,14 @@ function palindromeHandler(req,res,next){
     if(qObj.word != undefined){
 
         revWord = qObj.word.split("").reverse().join("");
+        let ogWord = qObj.word;
+        let palindromeWord = qObj.word+revWord;
+        req.inputStr = ogWord;
+        req.outputStr = palindromeWord;
+        //db.insertRecord(null,null,ogWord,palindromeWord);
+        
         res.json({"word":qObj.word,"Palindrome":qObj.word+revWord});
+        db.insertRecord(req,res);
 
     }
     else{
