@@ -26,7 +26,6 @@ if(process.env.DATABASE_URL != undefined){
     };
     console.log("Checking db");
     pool = new Pool(connectionString);
-    //pool.on('connect', () => console.log('connected to db'));
     console.log("After db we out here");
 }
 
