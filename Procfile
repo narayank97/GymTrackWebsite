@@ -1,2 +1,1 @@
-web: node createDB.js
-web: node startServer.js
+web: npx babel-node createNFLDB.js 

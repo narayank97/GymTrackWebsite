@@ -1,10 +1,10 @@
 const Pool = require('pg').Pool;
 
-let myUsername = 'karunnarayan';
-let myHost = 'localhost';
-let myDatabase = 'hellodb';
-let myPassword = 'abc';
-let myPort = process.env.PORT||'5432';
+// let myUsername = 'karunnarayan';
+// let myHost = 'localhost';
+// let myDatabase = 'hellodb';
+// let myPassword = 'abc';
+// let myPort = process.env.PORT||'5432';
 
 let env = process.env.NODE_ENV;
 
